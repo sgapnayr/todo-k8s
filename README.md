@@ -160,6 +160,13 @@ npm run test:cov
 
 ---
 
+## Check Out My Channel!
+
+🎥 Check out my software channel on YouTube: [https://www.youtube.com/@programwithpags](https://www.youtube.com/@programwithpags)  
+💬 If you have any questions about this tutorial, leave a comment on the Kubernetes video here: [https://www.youtube.com/watch?v=YRqaZdsRjYw](https://www.youtube.com/watch?v=YRqaZdsRjYw)
+
+---
+
 ## Support and Feedback
 
 For questions or feedback, feel free to open an issue or reach out on [Twitter](https://twitter.com/ryanpaglione).
