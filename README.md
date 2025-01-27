@@ -55,20 +55,20 @@ Before starting, ensure you have the following installed:
 ### Build the Docker Image:
 
 ```bash
-docker build -t ryanpaglioneauthln/todo-k8s:latest .
+docker build -t <your-dockerhub-name>/todo-k8s:latest .
 ```
 
 ### Run the Container Locally:
 
 ```bash
-docker run -p 3000:3000 --name todo-k8s ryanpaglioneauthln/todo-k8s:latest
+docker run -p 3000:3000 --name todo-k8s <your-dockerhub-name>/todo-k8s:latest
 ```
 
 ### Push the Image to Docker Hub:
 
 ```bash
 docker login
-docker push ryanpaglioneauthln/todo-k8s:latest
+docker push <your-dockerhub-name>/todo-k8s:latest
 ```
 
 ---
