@@ -22,79 +22,174 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+# Kubernetes with Minikube: Deploying a NestJS Backend
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
+</p>
 
-## Project setup
+<p align="center">Deploy and test a NestJS application using Kubernetes and Minikube, with Docker for containerization and an easy-to-understand banana analogy 🍌 for Kubernetes concepts.</p>
+
+---
+
+## Project Overview
+
+This repository showcases how to deploy a NestJS backend to a Minikube Kubernetes cluster. The example uses a Node.js/NestJS ecosystem, but the steps apply to any backend codebase.
+
+### What You'll Learn:
+
+- Containerizing a NestJS app with Docker 🐳
+- Pushing Docker images to Docker Hub 🏗️
+- Deploying applications to Kubernetes with Minikube 🚀
+- Testing exposed services locally via Minikube URLs and port forwarding 🖥️
+- Banana 🍌 analogy to simplify Kubernetes concepts.
+
+---
+
+## Prerequisites
+
+Before starting, ensure you have the following installed:
+
+- **VS Code** (or your preferred code editor)
+- **Docker Desktop**
+- **Docker Hub** (with an account)
+- **Node.js**
+- **Kubernetes** and **Minikube**
+
+---
+
+## Project Setup
+
+1. Clone the repository:
+
+   ```bash
+   git clone <repository-url>
+   cd <repository-folder>
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+---
+
+## Docker Commands
+
+### Build the Docker Image:
 
 ```bash
-$ npm install
+docker build -t ryanpaglioneauthln/todo-k8s:latest .
 ```
 
-## Compile and run the project
+### Run the Container Locally:
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+docker run -p 3000:3000 --name todo-k8s ryanpaglioneauthln/todo-k8s:latest
 ```
 
-## Run tests
+### Push the Image to Docker Hub:
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+docker login
+docker push ryanpaglioneauthln/todo-k8s:latest
 ```
 
-## Deployment
+---
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+## Kubernetes Deployment with Minikube
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### 1. Start Minikube:
 
 ```bash
-$ npm install -g mau
-$ mau deploy
+minikube start --memory=4096 --cpus=2
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### 2. Apply Kubernetes Configuration:
 
-## Resources
+```bash
+kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/service.yaml
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+### 3. Get the Exposed URL:
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+```bash
+minikube service todo-k8s-service --url
+```
 
-## Support
+### 4. Port Forwarding (Alternative):
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+kubectl port-forward service/todo-k8s-service 8080:3000
+```
 
-## Stay in touch
+### 5. Test the Endpoint:
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+#### From Minikube URL:
+
+```bash
+curl $(minikube service todo-k8s-service --url)
+```
+
+#### From Port Forwarding:
+
+```bash
+curl http://localhost:8080
+```
+
+---
+
+## Running the Application
+
+### Development Mode:
+
+```bash
+npm run start
+```
+
+### Watch Mode:
+
+```bash
+npm run start:dev
+```
+
+### Production Mode:
+
+```bash
+npm run start:prod
+```
+
+---
+
+## Testing
+
+### Run Unit Tests:
+
+```bash
+npm run test
+```
+
+### Run E2E Tests:
+
+```bash
+npm run test:e2e
+```
+
+### Test Coverage:
+
+```bash
+npm run test:cov
+```
+
+---
+
+## Support and Feedback
+
+For questions or feedback, feel free to open an issue or reach out on [Twitter](https://twitter.com/ryanpaglione).
+
+---
 
 ## License
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
-# todo-k8s
+This project is [MIT licensed](https://opensource.org/licenses/MIT).
