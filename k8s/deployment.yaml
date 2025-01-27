@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: todo-k8s
-          image: ryanpaglioneauthln/todo-k8s:latest
+          image: <your-dockerhub-username>/todo-k8s:latest
           ports:
             - containerPort: 3000
           env:
