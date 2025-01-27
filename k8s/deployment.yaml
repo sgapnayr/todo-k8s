@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-k8s
+  labels:
+    app: todo-k8s
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: todo-k8s
+  template:
+    metadata:
+      labels:
+        app: todo-k8s
+    spec:
+      containers:
+        - name: todo-k8s
+          image: ryanpaglioneauthln/todo-k8s:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NODE_ENV
+              value: 'production'
