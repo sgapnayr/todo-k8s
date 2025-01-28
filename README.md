@@ -160,6 +160,30 @@ npm run test:cov
 
 ---
 
+## Helpful Documentation
+
+📚 **Learn Kubernetes:**
+
+- Kubernetes Official Documentation: [https://kubernetes.io/docs/](https://kubernetes.io/docs/)
+- Minikube Official Guide: [https://minikube.sigs.k8s.io/docs/start/](https://minikube.sigs.k8s.io/docs/start/)
+
+🐳 **Learn Docker:**
+
+- Docker Official Documentation: [https://docs.docker.com/](https://docs.docker.com/)
+- Pushing Images to Docker Hub: [https://docs.docker.com/docker-hub/](https://docs.docker.com/docker-hub/)
+
+🖥️ **Learn Node.js:**
+
+- Node.js Official Documentation: [https://nodejs.org/en/docs/](https://nodejs.org/en/docs/)
+- NestJS Documentation: [https://docs.nestjs.com/](https://docs.nestjs.com/)
+
+💻 **Code Editor (VS Code):**
+
+- VS Code Official Documentation: [https://code.visualstudio.com/docs](https://code.visualstudio.com/docs)
+- VS Code Extensions for Node.js: [https://code.visualstudio.com/docs/nodejs/extensions](https://code.visualstudio.com/docs/nodejs/extensions)
+
+---
+
 ## Check Out My Channel!
 
 🎥 Check out my software channel on YouTube: [https://www.youtube.com/@programwithpags](https://www.youtube.com/@programwithpags)
