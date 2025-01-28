@@ -12,6 +12,8 @@
 
 This repository showcases how to deploy a NestJS backend to a Minikube Kubernetes cluster. The example uses a Node.js/NestJS ecosystem, but the steps apply to any backend codebase.
 
+🎥 Check out my tutorial on YouTube: [https://www.youtube.com/watch?v=YRqaZdsRjYw](https://www.youtube.com/watch?v=YRqaZdsRjYw)
+
 ### What You'll Learn:
 
 - Containerizing a NestJS app with Docker 🐳
@@ -181,12 +183,6 @@ npm run test:cov
 
 - VS Code Official Documentation: [https://code.visualstudio.com/docs](https://code.visualstudio.com/docs)
 - VS Code Extensions for Node.js: [https://code.visualstudio.com/docs/nodejs/extensions](https://code.visualstudio.com/docs/nodejs/extensions)
-
----
-
-## Check Out My Channel!
-
-🎥 Check out my software channel on YouTube: [https://www.youtube.com/@programwithpags](https://www.youtube.com/@programwithpags)
 
 ---
 
